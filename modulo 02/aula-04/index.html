@@ -8,18 +8,24 @@
 </head>
 
 <body>
-    <form>
+    <form id="form-contato">
         <input type="text" name="nome" placeholder="Digite seu nome" required>
         <label for="campo-nome">nome completo</label>
         <input type="text" id="campo-nome" minlength="3">
         <label for="cep">CEP</label>
-        <input type="text"
-        id="cep"
-        name="cep"
-        pattern="[0-9]{5}-[0-9]{3}"
-        title="Formando esperado: 00000_000">
+        <input type="text" id="cep" name="cep" pattern="[0-9]{5}-[0-9]{3}" title="Formando esperado: 00000-000">
+        
+        <script>
+            const formulario = document.querySelector("#form-contato");
+            formulario.addEventListener("submit",
+            function (event) {
+                event.preventDefault();
+                alert("menssagem enviada com sucesso!")
+            });
+        </script>
         <button type="submit">Enviar</button>
 
+    
     </form>
 
 
