@@ -1,14 +1,22 @@
 body {
-  background: #0c0a0a;
+  background: #fffefe;
   font-family: Arial;
 }
-.cartao { background: rgb(4, 133, 43); }
+.cartao { background: rgb(243, 245, 245); }
 #titulo { color: #380ef5; }
 
 .apresentacao {
-  color:#1e293b;
+  color:#0707f7;
   background: #dbeafe;
   font-family: Arial, sans-serif;
   font-size: 18px;
+  text-align:center
+}
+
+.Musica {
+  color:#ffffff;
+  background: #7c3aed;
+  font-family: Georgia;
+  font-size: 22px;
   text-align:center
 }
