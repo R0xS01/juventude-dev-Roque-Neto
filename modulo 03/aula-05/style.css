@@ -36,3 +36,29 @@ body {
    margin: .5% 1%;
    border:2px solid rgba(255,255,255, .12);
 }
+
+
+
+.inferior{
+max-width: 960px;
+   margin: 0 auto;    
+}
+
+.inferior-quadrado{
+   display: inline-block;
+   vertical-align: top;
+   width: 45%;
+   min-height: 400px;
+   background: #181538;
+   border-radius: 50px;
+   margin: 2%;
+   border:2px solid rgba(255,255,255, .12);
+}
+.inferior_D{
+  background: hsl(96, 99%, 45%);
+  width:80%;
+  height: 50px; 
+  margin: 5%;
+  margin-top: 10%;
+  margin-left: 10%;
+}
