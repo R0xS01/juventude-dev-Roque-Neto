@@ -74,16 +74,26 @@ nav ul {
    display: flex;
    justify-content: center;
    gap:2rem;
-   list-style: none;
+   list-style: none;ç
 }
 
 nav a {
-   color: #FFFFFF;
+   color: #FFF;
    text-decoration: none;
    font-weight: bold;
 }
 
 nav a:hover{
-   color:crimson
-   
+   color:crimson;
+   background:dodgerblue;
+
+}
+
+nav a:active { transform: translateY(1px);}
+
+
+.nav a:focus-visible {
+   outline: 3px solid #FFC857;
+   outline-offset:3px ;
+   border-radius: 4px;
 }
