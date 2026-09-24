@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulário de Contato</h1>
+    <h2>Preencha o formulário abaixo:</h2>
+    <form action="/enviar-contato" method="post">
+      <input type="text" name="nome" placeholder="Digite seu nome"><br><br>
+      <input type="email" name="email" placeholder="Digite seu email"><br><br>
+      <input type="password" name="senha" placeholder="Digite sua senha"><br><br>
+      <input type="number" name="idade" placeholder="Digite sua idade"><br><br>
+      <input type="date" name="data_nascimento" placeholder="Digite sua data de nascimento"><br><br>
+      <input type="text" class="form-control">
+      <textarea class="form-control" rows="4"></textarea>
+    
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" >
+      </div>
+
+       <div class="mb-3"> 
+        <input type="email" class="form-control" is-invalid id="email" name="email">
+        <div id="email-error" class="invalid-feedback">
+            Por favor, insira um endereço de e-mail válido.
+        </div>
+       </div>
+       
+
+    </form> 
+</body>
+</html>
