@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Descubra jogos, explore gêneros e encontre sua próxima aventura.">
+  <title>LevelUp — Encontre seu próximo jogo</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top" aria-label="Navegação principal">
+    <div class="container py-2">
+      <a class="navbar-brand text-white fw-bold" href="#">
+        <i class="bi bi-controller brand-mark me-2" aria-hidden="true"></i>LevelUp
+      </a>
+
+      <button class="navbar-toggler border-secondary" type="button"
+        data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+        aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+        <i class="bi bi-list text-white fs-3" aria-hidden="true"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="#buscar">Buscar jogos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#vantagens">Sobre</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow mb-3">
+          <i class="bi bi-stars me-2" aria-hidden="true"></i>
+          Seu próximo universo começa aqui
+        </p>
+
+        <h1 class="mb-3">
+          Encontre um jogo<br>
+          que <span>combina com você.</span>
+        </h1>
+
+        <p class="hero-copy mb-0">
+          Explore aventuras, descubra novos mundos e encontre sua próxima experiência favorita.
+          Use os filtros para chegar ao jogo ideal.
+        </p>
+
+        <div class="hero-actions d-flex flex-wrap gap-3 mt-4">
+          <a class="btn btn-neon" href="#catalogo">
+            <i class="bi bi-controller me-2" aria-hidden="true"></i>Explorar jogos
+          </a>
+          <a class="btn btn-outline-neon" href="#buscar">
+            <i class="bi bi-search me-2" aria-hidden="true"></i>Encontrar meu jogo
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="container mb-5" id="buscar" aria-labelledby="titulo-busca">
+      <div class="search-panel">
+        <h2 class="h5 fw-bold mb-4" id="titulo-busca">
+          <i class="bi bi-sliders me-2 accent-icon" aria-hidden="true"></i>
+          Encontre seu jogo
+        </h2>
+
+        <form action="#catalogo" method="get">
+          <div class="row g-3 align-items-end">
+            <div class="col-12 col-md-6 col-lg-3">
+              <label class="form-label" for="nome">Nome do jogo</label>
+              <input class="form-control" type="search" id="nome" name="nome"
+                placeholder="Ex.: aventura espacial">
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-2">
+              <label class="form-label" for="genero">Gênero</label>
+              <select class="form-select" id="genero" name="genero">
+                <option value="">Todos os gêneros</option>
+                <option value="aventura">Aventura</option>
+                <option value="rpg">RPG</option>
+                <option value="acao">Ação</option>
+                <option value="estrategia">Estratégia</option>
+                <option value="corrida">Corrida</option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-2">
+              <label class="form-label" for="plataforma">Plataforma</label>
+              <select class="form-select" id="plataforma" name="plataforma">
+                <option value="">Todas</option>
+                <option value="pc">PC</option>
+                <option value="ps5">PlayStation 5</option>
+                <option value="xbox">Xbox Series X|S</option>
+                <option value="switch">Nintendo Switch</option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-2">
+              <label class="form-label" for="preco">Preço máximo</label>
+              <select class="form-select" id="preco" name="preco">
+                <option value="">Qualquer preço</option>
+                <option value="50">Até R$ 50</option>
+                <option value="100">Até R$ 100</option>
+                <option value="200">Até R$ 200</option>
+              </select>
+            </div>
+
+            <div class="col-12 col-lg-3">
+              <button class="btn btn-accent w-100" type="submit">
+                <i class="bi bi-search me-2" aria-hidden="true"></i>Buscar jogos
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="container pb-5" id="catalogo" aria-labelledby="titulo-catalogo">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+        <div>
+          <p class="eyebrow mb-2">Escolhas da comunidade</p>
+          <h2 class="section-title h2 mb-0" id="titulo-catalogo">Jogos em destaque</h2>
+        </div>
+
+        <a class="catalog-link text-decoration-none" href="#catalogo">
+          Explorar catálogo <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="game-card">
+            <img class="game-image"
+              src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=85"
+              alt="Arena de competição de jogos eletrônicos"
+              loading="lazy">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="tag">Aventura · RPG</span>
+                <span class="rating"><i class="bi bi-star-fill me-1" aria-hidden="true"></i>9,4</span>
+              </div>
+              <h3>Horizonte de Éter</h3>
+              <p class="game-description">
+                Explore um vasto mundo fantástico, forme alianças e descubra os segredos
+                de civilizações esquecidas.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="tag">Mundo aberto</span>
+                <span class="tag">Cooperativo</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3">
+                <span class="meta"><i class="bi bi-pc-display me-1" aria-hidden="true"></i>PC · PS5</span>
+                <span class="price">R$ 199,90</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="game-card">
+            <img class="game-image"
+              src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=85"
+              alt="Jogador usando controle diante de uma tela"
+              loading="lazy">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="tag">Ação · Ficção científica</span>
+                <span class="rating"><i class="bi bi-star-fill me-1" aria-hidden="true"></i>8,9</span>
+              </div>
+              <h3>Órbita: Último Sinal</h3>
+              <p class="game-description">
+                Encare uma missão de sobrevivência em uma estação espacial abandonada,
+                onde cada recurso pode fazer a diferença.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="tag">Modo história</span>
+                <span class="tag">Sobrevivência</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3">
+                <span class="meta"><i class="bi bi-controller me-1" aria-hidden="true"></i>PC · Xbox</span>
+                <span class="price">R$ 149,90</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="game-card">
+            <img class="game-image"
+              src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=900&q=85"
+              alt="Controles e acessórios de videogame"
+              loading="lazy">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="tag">Corrida · Esporte</span>
+                <span class="rating"><i class="bi bi-star-fill me-1" aria-hidden="true"></i>8,7</span>
+              </div>
+              <h3>Velocidade Urbana</h3>
+              <p class="game-description">
+                Personalize seu carro, domine pistas noturnas e dispute campeonatos
+                online em cidades cheias de vida.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="tag">Multiplayer</span>
+                <span class="tag">Personalização</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3">
+                <span class="meta"><i class="bi bi-pc-display me-1" aria-hidden="true"></i>PC · PS5 · Xbox</span>
+                <span class="price">R$ 119,90</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-4 mb-5" id="vantagens" aria-label="Vantagens do LevelUp">
+      <div class="row g-3">
+        <div class="col-12 col-md-4">
+          <div class="feature-card">
+            <i class="bi bi-compass feature-icon" aria-hidden="true"></i>
+            <h3 class="h5 fw-bold mt-3">Descubra novidades</h3>
+            <p class="text-muted-custom mb-0">
+              Encontre jogos de diferentes gêneros e plataformas em um só lugar.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="feature-card">
+            <i class="bi bi-chat-square-heart feature-icon" aria-hidden="true"></i>
+            <h3 class="h5 fw-bold mt-3">Escolha com confiança</h3>
+            <p class="text-muted-custom mb-0">
+              Compare avaliações, recursos e informações antes de decidir.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="feature-card">
+            <i class="bi bi-controller feature-icon" aria-hidden="true"></i>
+            <h3 class="h5 fw-bold mt-3">Jogue do seu jeito</h3>
+            <p class="text-muted-custom mb-0">
+              Use os filtros para encontrar experiências que combinam com você.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-4">
+    <div class="container d-flex flex-wrap justify-content-between gap-2">
+      <span>© 2026 LevelUp — Feito para quem ama jogar.</span>
+      <span>Descubra. Escolha. Jogue.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
