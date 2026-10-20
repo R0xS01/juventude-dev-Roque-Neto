@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#101815">
+	<title>Cadastro específico de produto</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<span class="shape shape-one" aria-hidden="true"></span>
+	<span class="shape shape-two" aria-hidden="true"></span>
+
+	<main class="page-shell">
+		<header>
+			<span class="eyebrow">Catálogo · novo produto</span>
+			<h1>Cadastre com<br>todos os detalhes.</h1>
+			<p class="lead-copy">Preencha as informações abaixo para adicionar um produto ao catálogo. Os campos marcados são obrigatórios e ajudam a manter os dados organizados.</p>
+		</header>
+
+		<section class="row form-layout" aria-label="Cadastro detalhado de produto">
+			<div class="col-12 col-lg-7">
+				<form class="product-form" action="#" method="get">
+					<div class="form-heading">
+						<div>
+							<h2>Informações do produto</h2>
+							<p>Descreva o item com clareza para facilitar sua identificação.</p>
+						</div>
+						<span class="required-note">Todos obrigatórios</span>
+					</div>
+
+					<div class="field-block">
+						<label class="form-label" for="nome">Nome do produto</label>
+						<input class="form-control" id="nome" name="nome" type="text" minlength="3" maxlength="60" placeholder="Ex.: Café especial em grãos" aria-describedby="nome-ajuda" required>
+						<p class="field-help" id="nome-ajuda">Use um nome fácil de reconhecer, entre 3 e 60 caracteres.</p>
+					</div>
+
+					<div class="field-block">
+						<label class="form-label" for="preco">Preço de venda (R$)</label>
+						<input class="form-control" id="preco" name="preco" type="number" min="0.01" max="999999.99" step="0.01" placeholder="Ex.: 39,90" aria-describedby="preco-ajuda" required>
+						<p class="field-help" id="preco-ajuda">Informe um valor maior que zero, com até duas casas decimais.</p>
+					</div>
+
+					<div class="field-block">
+						<label class="form-label" for="categoria">Categoria</label>
+						<select class="form-select" id="categoria" name="categoria" required>
+							<option value="" selected disabled>Selecione a categoria do produto</option>
+							<option value="alimentos">Alimentos e bebidas</option>
+							<option value="casa">Casa e decoração</option>
+							<option value="eletronicos">Eletrônicos</option>
+							<option value="vestuario">Vestuário e acessórios</option>
+							<option value="beleza">Beleza e cuidados pessoais</option>
+							<option value="outros">Outros</option>
+						</select>
+						<p class="field-help">Escolha a categoria que melhor representa o produto.</p>
+					</div>
+
+					<div class="field-block mb-4">
+						<label class="form-label" for="descricao">Descrição detalhada</label>
+						<textarea class="form-control" id="descricao" name="descricao" minlength="20" maxlength="500" placeholder="Inclua materiais, medidas, características e modo de uso." aria-describedby="descricao-ajuda" required></textarea>
+						<p class="field-help" id="descricao-ajuda">Escreva de 20 a 500 caracteres com os detalhes mais importantes.</p>
+					</div>
+
+					<button class="btn submit-button w-100" type="submit">Adicionar produto ao catálogo</button>
+				</form>
+			</div>
+
+			<aside class="col-12 col-lg-5 info-panel" aria-label="Orientações do formulário">
+				<h2>Para que serve cada campo?</h2>
+				<div class="info-item">
+					<strong>Nome</strong>
+					<p>Identifica o produto no catálogo e nas buscas. Prefira um nome direto e específico.</p>
+				</div>
+				<div class="info-item">
+					<strong>Preço</strong>
+					<p>Registra o valor de venda em reais. O formulário aceita valores positivos com centavos.</p>
+				</div>
+				<div class="info-item">
+					<strong>Categoria</strong>
+					<p>Organiza os produtos em grupos para que clientes encontrem o item com mais facilidade.</p>
+				</div>
+				<div class="info-item">
+					<strong>Descrição</strong>
+					<p>Apresenta características e informações úteis para diferenciar o produto e orientar a compra.</p>
+				</div>
+			</aside>
+		</section>
+	</main>
+</body>
+</html>

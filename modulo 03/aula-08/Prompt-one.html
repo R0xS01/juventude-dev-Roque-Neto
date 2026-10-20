@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3f1e9">
+    <title>Cadastro de produtos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #222a29;
+            --muted: #66716c;
+            --paper: #f3f1e9;
+            --line: rgba(34, 42, 41, .13);
+            --green: #285d4b;
+            --lime: #d6ee87;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            color: var(--ink);
+            font-family: "DM Sans", sans-serif;
+            background-color: var(--paper);
+            background-image: radial-gradient(rgba(40, 93, 75, .12) .7px, transparent .7px);
+            background-size: 17px 17px;
+        }
+
+        .page-shell {
+            width: min(1120px, calc(100% - 2rem));
+            margin: 0 auto;
+            padding: 4.5rem 0 5rem;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            color: var(--green);
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #99ba4f;
+            content: "";
+        }
+
+        h1, h2, .level-number { font-family: "Space Grotesk", sans-serif; }
+
+        h1 {
+            max-width: 720px;
+            margin: 1rem 0 .8rem;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 700;
+            line-height: .98;
+        }
+
+        .intro {
+            max-width: 570px;
+            margin-bottom: 2.75rem;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.65;
+        }
+
+        .form-grid { --bs-gutter-y: 1.25rem; }
+
+        .form-panel {
+            position: relative;
+            height: 100%;
+            padding: clamp(1.25rem, 3vw, 2rem);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .8);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .72);
+            box-shadow: 0 12px 35px rgba(34, 42, 41, .08);
+            backdrop-filter: blur(12px);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+
+        .form-panel:hover {
+            transform: translateY(-5px);
+            border-color: rgba(40, 93, 75, .3);
+            box-shadow: 0 20px 45px rgba(34, 42, 41, .14);
+        }
+
+        .form-panel.featured {
+            background: rgba(255, 255, 255, .88);
+            box-shadow: 0 16px 42px rgba(40, 93, 75, .14);
+        }
+
+        .panel-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .level-number {
+            color: #9cac9f;
+            font-size: .82rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            margin: .25rem 0 .3rem;
+            font-size: 1.55rem;
+            font-weight: 600;
+        }
+
+        .panel-description {
+            margin: 0;
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .tag {
+            padding: .35rem .6rem;
+            border-radius: 4px;
+            color: var(--green);
+            background: #e8efd9;
+            font-size: .72rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .form-label {
+            margin-bottom: .4rem;
+            font-size: .85rem;
+            font-weight: 600;
+        }
+
+        .form-control, .form-select {
+            min-height: 46px;
+            border-color: var(--line);
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, .82);
+            font-size: .92rem;
+        }
+
+        textarea.form-control { min-height: 112px; resize: vertical; }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #71957d;
+            box-shadow: 0 0 0 .2rem rgba(40, 93, 75, .12);
+        }
+
+        .form-text {
+            margin-top: .35rem;
+            color: var(--muted);
+            font-size: .77rem;
+        }
+
+        .btn-submit {
+            min-height: 46px;
+            border: 0;
+            border-radius: 5px;
+            color: #fff;
+            background: var(--green);
+            font-weight: 700;
+            transition: background .2s ease, transform .2s ease;
+        }
+
+        .btn-submit:hover, .btn-submit:focus-visible {
+            color: #fff;
+            background: #1d4839;
+            transform: translateY(-1px);
+        }
+
+        .featured .btn-submit { color: var(--ink); background: var(--lime); }
+        .featured .btn-submit:hover { background: #c7e46f; }
+
+        @keyframes enter-view {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @supports (animation-timeline: view()) {
+            .form-panel {
+                animation: enter-view linear both;
+                animation-timeline: view();
+                animation-range: entry 0% entry 35%;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .page-shell { padding-top: 3rem; }
+            .intro { margin-bottom: 2rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page-shell">
+        <header>
+            <span class="eyebrow">Cadastro de produtos</span>
+            <h1>Três jeitos de<br>preencher o mesmo cadastro.</h1>
+            <p class="intro">Compare níveis diferentes de orientação e validação para cadastrar um produto. Escolha o formulário que combina com o seu fluxo.</p>
+        </header>
+
+        <section class="row form-grid" aria-label="Formulários de cadastro">
+            <div class="col-12 col-lg-4">
+                <article class="form-panel">
+                    <div class="panel-top">
+                        <div>
+                            <span class="level-number">01 / LIVRE</span>
+                            <h2>Vago</h2>
+                            <p class="panel-description">Sem exigências ou instruções extras.</p>
+                        </div>
+                        <span class="tag">Básico</span>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label" for="nome-vago">Nome</label>
+                            <input class="form-control" id="nome-vago" name="nome" type="text" placeholder="Nome do produto">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="preco-vago">Preço</label>
+                            <input class="form-control" id="preco-vago" name="preco" type="number" step="0.01" placeholder="0,00">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="categoria-vaga">Categoria</label>
+                            <select class="form-select" id="categoria-vaga" name="categoria">
+                                <option value="" selected>Escolha uma opção</option>
+                                <option>Alimentos</option><option>Casa</option><option>Eletrônicos</option><option>Vestuário</option><option>Outra</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="descricao-vaga">Descrição</label>
+                            <textarea class="form-control" id="descricao-vaga" name="descricao" placeholder="Descreva o produto"></textarea>
+                        </div>
+                        <button class="btn btn-submit w-100" type="submit">Cadastrar produto</button>
+                    </form>
+                </article>
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <article class="form-panel">
+                    <div class="panel-top">
+                        <div>
+                            <span class="level-number">02 / ORIENTADO</span>
+                            <h2>Intermediário</h2>
+                            <p class="panel-description">Campos obrigatórios e dicas objetivas.</p>
+                        </div>
+                        <span class="tag">Guiado</span>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label" for="nome-intermediario">Nome</label>
+                            <input class="form-control" id="nome-intermediario" name="nome" type="text" placeholder="Ex.: Café especial" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="preco-intermediario">Preço (R$)</label>
+                            <input class="form-control" id="preco-intermediario" name="preco" type="number" min="0.01" step="0.01" placeholder="Ex.: 29,90" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="categoria-intermediaria">Categoria</label>
+                            <select class="form-select" id="categoria-intermediaria" name="categoria" required>
+                                <option value="" selected disabled>Selecione uma categoria</option>
+                                <option>Alimentos</option><option>Casa</option><option>Eletrônicos</option><option>Vestuário</option><option>Outra</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="descricao-intermediaria">Descrição</label>
+                            <textarea class="form-control" id="descricao-intermediaria" name="descricao" maxlength="300" placeholder="Conte o que torna este produto especial" required></textarea>
+                            <div class="form-text">Inclua características importantes (até 300 caracteres).</div>
+                        </div>
+                        <button class="btn btn-submit w-100" type="submit">Cadastrar produto</button>
+                    </form>
+                </article>
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <article class="form-panel featured">
+                    <div class="panel-top">
+                        <div>
+                            <span class="level-number">03 / PRECISO</span>
+                            <h2>Específico</h2>
+                            <p class="panel-description">Regras detalhadas para dados consistentes.</p>
+                        </div>
+                        <span class="tag">Completo</span>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label" for="nome-especifico">Nome do produto</label>
+                            <input class="form-control" id="nome-especifico" name="nome" type="text" minlength="3" maxlength="60" placeholder="Ex.: Café em grãos, torra média" aria-describedby="nome-ajuda" required>
+                            <div class="form-text" id="nome-ajuda">De 3 a 60 caracteres.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="preco-especifico">Preço de venda (R$)</label>
+                            <input class="form-control" id="preco-especifico" name="preco" type="number" min="0.01" max="999999.99" step="0.01" placeholder="Ex.: 42,90" aria-describedby="preco-ajuda" required>
+                            <div class="form-text" id="preco-ajuda">Informe um valor maior que zero.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="categoria-especifica">Categoria principal</label>
+                            <select class="form-select" id="categoria-especifica" name="categoria" required>
+                                <option value="" selected disabled>Selecione uma categoria</option>
+                                <option>Alimentos</option><option>Casa</option><option>Eletrônicos</option><option>Vestuário</option><option>Outra</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="descricao-especifica">Descrição do produto</label>
+                            <textarea class="form-control" id="descricao-especifica" name="descricao" minlength="20" maxlength="500" placeholder="Materiais, medidas, diferenciais e modo de uso" aria-describedby="descricao-ajuda" required></textarea>
+                            <div class="form-text" id="descricao-ajuda">Descreva em 20 a 500 caracteres.</div>
+                        </div>
+                        <button class="btn btn-submit w-100" type="submit">Cadastrar produto</button>
+                    </form>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
