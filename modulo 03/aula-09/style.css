@@ -1,83 +1,12 @@
-:root {
-	--cor-fundo: #17211d;
-	--cor-texto: #f4f7f5;
-	--cor-destaque: #9be3bb;
+.marca {
+	color: #9be3bb;
 }
 
-* {
-	box-sizing: border-box;
-}
-
-body {
-	margin: 0;
-	color: #202923;
-	font-family: Arial, sans-serif;
-	line-height: 1.6;
-}
-
-.secao {
-	min-height: 55vh;
-	padding: 4rem 10%;
-	scroll-margin-top: 1rem;
-}
-
-.secao:nth-child(even) {
+.fundo-claro {
 	background-color: #f0f5f1;
 }
 
-.rodape {
-	padding: 2rem 1.5rem;
-	background-color: var(--cor-fundo);
-	color: var(--cor-texto);
-	text-align: center;
-}
-
-.rodape__nome {
-	margin: 0 0 1rem;
-	font-size: 1.25rem;
-	font-weight: bold;
-}
-
-.menu-rodape {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 0.75rem 1.5rem;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.menu-rodape a {
-	display: inline-block;
-	padding: 0.25rem;
-	color: var(--cor-texto);
-	text-decoration: none;
-}
-
-.menu-rodape a:hover {
-	color: var(--cor-destaque);
-	text-decoration: underline;
-	text-underline-offset: 0.25rem;
-}
-
-.menu-rodape a:focus-visible {
-	color: var(--cor-destaque);
-	outline: 2px solid var(--cor-destaque);
-	outline-offset: 4px;
-}
-
-.rodape__direitos {
-	margin: 1.5rem 0 0;
-	font-size: 0.875rem;
-}
-
-@media (max-width: 480px) {
-	.secao {
-		padding: 3rem 1.25rem;
-	}
-
-	.menu-rodape {
-		gap: 0.5rem 1rem;
-	}
+.card-projeto {
+	border: 0;
+	border-top: 4px solid #216844;
 }
