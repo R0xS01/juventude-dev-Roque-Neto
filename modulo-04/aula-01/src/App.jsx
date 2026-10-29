@@ -3,7 +3,7 @@ import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
-
+import Botao from './Botao.jsx'
 
 function App() {
   return (
@@ -12,7 +12,8 @@ function App() {
       <p>Feito com React e Vite.</p>
       <h2>Desenvolvendo meu site</h2>
       <p>Funções</p>
-      <button type="button" class="btn btn-primary">Meu site</button>
+      <Botao />
+      
     </main>
     
   )
